@@ -1,0 +1,1 @@
+const router = require('express').Router(); const c = require('../controllers/adminController'); const { protect, adminOnly } = require('../middleware/authMiddleware'); router.use(protect, adminOnly); router.get('/dashboard', c.dashboard); router.get('/users', c.users); module.exports = router;
