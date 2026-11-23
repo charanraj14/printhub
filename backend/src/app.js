@@ -14,9 +14,9 @@ app.use(cors({ origin: [
 ].filter(Boolean), credentials: true }));
 app.use(express.json({ limit: '2mb' }));
 app.use(morgan('dev'));
-app.get('/', (req, res) => res.json({ success: true, message: 'PrintHub API is running' }));
+app.get('/', (req, res) => res.json({ success: true, message: 'wePrint API is running' }));
 app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
-app.get('/api/health', (req, res) => res.json({ success: true, message: 'PrintHub API is running' }));
+app.get('/api/health', (req, res) => res.json({ success: true, message: 'wePrint API is running' }));
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/products', require('./routes/productRoutes'));
 app.use('/api/categories', require('./routes/categoryRoutes'));

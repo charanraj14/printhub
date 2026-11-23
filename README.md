@@ -1,4 +1,4 @@
-# PrintHub — MERN Custom Printing Platform
+# wePrint — MERN Custom Printing Platform
 
 A modular starter project inspired by the broad workflows of online print-commerce platforms. It is an original starter implementation, not a copy of Printo's branding, content, or proprietary design.
 
@@ -21,8 +21,8 @@ Node.js 18+ and a MongoDB Atlas connection string.
 4. Run each app in a separate terminal using `npm run dev`.
 
 ## Demo account
-Seeded admin: `admin@printhub.local` / `Admin123!`
-Seeded customer: `customer@printhub.local` / `Customer123!`
+Seeded admin: `admin@wePrint.local` / `Admin123!`
+Seeded customer: `customer@wePrint.local` / `Customer123!`
 Change these credentials before using the project beyond local evaluation.
 
 ## Environment

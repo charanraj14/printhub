@@ -15,7 +15,7 @@ app.use(async (req, res, next) => {
 
 if (require.main === module) {
     app.listen(process.env.PORT || 5000, () => {
-        console.log('PrintHub API running');
+        console.log('wePrint API running');
     });
 }
 

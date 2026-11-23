@@ -42,7 +42,7 @@ const categories = [
 
 const seedDatabase = async () => {
     try {
-        console.log("\n========== PRINTHUB SEED STARTED ==========\n");
+        console.log("\n========== wePrint SEED STARTED ==========\n");
 
         if (!process.env.MONGO_URI) {
             throw new Error("MONGO_URI is missing in backend/.env");
@@ -51,8 +51,8 @@ const seedDatabase = async () => {
         await mongoose.connect(process.env.MONGO_URI);
         console.log("MongoDB connected successfully");
 
-        const adminEmail = "admin@printhub.local";
-        const customerEmail = "customer@printhub.local";
+        const adminEmail = "admin@wePrint.local";
+        const customerEmail = "customer@wePrint.local";
 
         let admin = await User.findOne({ email: adminEmail });
 
@@ -60,7 +60,7 @@ const seedDatabase = async () => {
             const hashedPassword = await bcrypt.hash("Admin123!", 10);
 
             admin = await User.create({
-                name: "PrintHub Admin",
+                name: "wePrint Admin",
                 email: adminEmail,
                 password: hashedPassword,
                 role: "admin"
@@ -77,7 +77,7 @@ const seedDatabase = async () => {
             const hashedPassword = await bcrypt.hash("Customer123!", 10);
 
             customer = await User.create({
-                name: "PrintHub Customer",
+                name: "wePrint Customer",
                 email: customerEmail,
                 password: hashedPassword,
                 role: "customer"
@@ -218,9 +218,9 @@ const seedDatabase = async () => {
         }
 
         console.log("\n========== SEED COMPLETED SUCCESSFULLY ==========");
-        console.log("Admin Email: admin@printhub.local");
+        console.log("Admin Email: admin@wePrint.local");
         console.log("Admin Password: Admin123!");
-        console.log("Customer Email: customer@printhub.local");
+        console.log("Customer Email: customer@wePrint.local");
         console.log("Customer Password: Customer123!");
         console.log("===============================================\n");
 
