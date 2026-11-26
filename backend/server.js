@@ -1,3 +1,4 @@
+
 require('dotenv').config();
 require('express-async-errors');
 
@@ -14,7 +15,7 @@ async function startServer() {
             console.log(`wePrint API running on port ${PORT}`);
         });
     } catch (error) {
-        console.error('Server startup failed:', error.message);
+        console.error('Server startup failed:', error);
         process.exit(1);
     }
 }
