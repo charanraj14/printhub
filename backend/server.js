@@ -4,19 +4,21 @@ require('express-async-errors');
 const app = require('./src/app');
 const connectDB = require('./src/config/db');
 
-app.use(async (req, res, next) => {
+const PORT = process.env.PORT || 5000;
+
+async function startServer() {
     try {
         await connectDB();
-        next();
-    } catch (error) {
-        next(error);
-    }
-});
 
-if (require.main === module) {
-    app.listen(process.env.PORT || 5000, () => {
-        console.log('wePrint API running');
-    });
+        app.listen(PORT, () => {
+            console.log(`wePrint API running on port ${PORT}`);
+        });
+    } catch (error) {
+        console.error('Server startup failed:', error.message);
+        process.exit(1);
+    }
 }
 
-module.exports = app;
+if (require.main === module) {
+    startServer();
+}

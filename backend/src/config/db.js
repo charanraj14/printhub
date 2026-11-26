@@ -9,8 +9,7 @@ if (!cached) {
     };
 }
 
-module.exports = async () => {
-
+async function connectDB() {
     if (cached.conn) {
         return cached.conn;
     }
@@ -21,7 +20,7 @@ module.exports = async () => {
 
     if (!cached.promise) {
         cached.promise = mongoose.connect(process.env.MONGO_URI)
-            .then((mongoose) => mongoose)
+            .then((mongooseInstance) => mongooseInstance)
             .catch((error) => {
                 cached.promise = null;
                 throw error;
@@ -30,7 +29,9 @@ module.exports = async () => {
 
     cached.conn = await cached.promise;
 
-    console.log('MongoDB connected');
+    console.log('MongoDB connected successfully');
 
     return cached.conn;
-};
+}
+
+module.exports = connectDB;
